@@ -1,0 +1,67 @@
+*{{.DocHeader}}*
+
+{{.HeaderTitle}}
+{{.Underline}}
+
+==============================================================================
+CONTENTS                                                   *{{.Name}}-contents*
+
+  1. Introduction ........................ |{{.Name}}-introduction|
+  2. Requirements ........................ |{{.Name}}-requirements|
+  3. Usage ............................... |{{.Name}}-usage|
+  4. Configuration ....................... |{{.Name}}-configuration|
+  5. Commands ............................ |{{.Name}}-commands|
+  6. Mappings ............................ |{{.Name}}-mappings|
+
+==============================================================================
+1. Introduction                                            *{{.Name}}-introduction*
+
+{{.Description}}
+
+==============================================================================
+2. Requirements                                            *{{.Name}}-requirements*
+
+- Neovim >= 0.8.0
+
+==============================================================================
+3. Usage                                                   *{{.Name}}-usage*
+
+To use {{.Name}}, first set it up in your init.lua:
+
+>
+  require('{{.Name}}').setup({
+    -- your configuration here
+  })
+<
+
+==============================================================================
+4. Configuration                                           *{{.Name}}-configuration*
+
+{{.Name}} supports the following options:
+
+>
+  {
+    -- options go here
+  }
+<
+
+==============================================================================
+5. Commands                                                *{{.Name}}-commands*
+
+{{.Name}} provides the following commands:
+
+:{{.CapitalizedCmd}}                                                      *:{{.CapitalizedCmd}}*
+    Run the main functionality of {{.Name}}.
+
+==============================================================================
+6. Mappings                                                *{{.Name}}-mappings*
+
+{{.Name}} doesn't set up any mappings by default. Here are some suggested mappings:
+
+>
+  -- Example mapping
+  vim.keymap.set('n', '<Leader>p', ':{{.CapitalizedCmd}}<CR>', { desc = 'Run {{.Name}}' })
+<
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:

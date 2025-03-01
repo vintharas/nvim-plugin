@@ -1,0 +1,53 @@
+# {{.Name}}
+
+{{.Description}}
+
+## Installation
+
+Using [packer.nvim](https://github.com/wbthomason/packer.nvim):
+
+```lua
+use {
+  '{{.Name}}',
+  config = function()
+    require('{{.Name}}').setup({
+      -- your configuration comes here
+    })
+  end
+}
+```
+
+Using [lazy.nvim](https://github.com/folke/lazy.nvim):
+
+```lua
+{
+  '{{.Name}}',
+  config = function()
+    require('{{.Name}}').setup({
+      -- your configuration comes here
+    })
+  end
+}
+```
+
+## Configuration
+
+{{.Name}} comes with these defaults:
+
+```lua
+{
+  -- Define your default options here
+}
+```
+
+## Usage
+
+After installation, you can use the plugin with:
+
+```vim
+:{{.CapitalizedCmd}}
+```
+
+## License
+
+MIT

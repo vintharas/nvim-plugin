@@ -1,0 +1,14 @@
+-- Plugin entry point
+if vim.g.loaded_{{.VarName}} then
+  return
+end
+vim.g.loaded_{{.VarName}} = true
+
+-- Create user command
+vim.api.nvim_create_user_command('{{.CapitalizedCmd}}', function(opts)
+  -- Call your plugin functionality here
+  require('{{.Name}}').command(opts.args)
+end, {
+  nargs = '*',
+  desc = 'Run {{.Name}} plugin',
+})
