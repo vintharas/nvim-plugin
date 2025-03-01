@@ -31,7 +31,7 @@ type TemplateData struct {
 func GeneratePlugin(name, description string) error {
 	// Create the main plugin directory
 	pluginDir := "./" + name
-	if err := os.MkdirAll(pluginDir, 0755); err != nil {
+	if err := os.MkdirAll(pluginDir, 0o755); err != nil {
 		return fmt.Errorf("failed to create plugin directory: %w", err)
 	}
 
@@ -47,7 +47,7 @@ func GeneratePlugin(name, description string) error {
 
 	// Create each directory with proper permissions
 	for _, dir := range dirs {
-		if err := os.MkdirAll(dir, 0755); err != nil {
+		if err := os.MkdirAll(dir, 0o755); err != nil {
 			return fmt.Errorf("failed to create directory %s: %w", dir, err)
 		}
 	}
@@ -84,6 +84,10 @@ func GeneratePlugin(name, description string) error {
 		{
 			outputPath: filepath.Join(pluginDir, "doc", name+".txt"),
 			tmplPath:   "templates/doc/plugin.txt.tmpl",
+		},
+		{
+			outputPath: filepath.Join(pluginDir, ".stylua.toml"),
+			tmplPath:   "templates/stylua.toml.tmpl",
 		},
 	}
 
@@ -127,7 +131,7 @@ func renderTemplateFile(tmplPath string, data TemplateData) (string, error) {
 
 // writeFile is a helper function to write content to a file
 func writeFile(path, content string) error {
-	return os.WriteFile(path, []byte(content), 0644)
+	return os.WriteFile(path, []byte(content), 0o644)
 }
 
 // Helper functions for string manipulation
@@ -147,3 +151,4 @@ func capitalizeFirst(s string) string {
 	}
 	return strings.ToUpper(s[:1]) + s[1:]
 }
+
