@@ -15,15 +15,15 @@ nvim-plugin/
 ├── cmd/                     # Command-line application entry points
 │   └── nvim-plugin/         # Main CLI application
 │       └── main.go          # Application entry point
-├── pkg/                     # Reusable packages
-│   └── ui/                  # UI components and logic
-│       ├── generator.go     # Plugin generation functionality
-│       └── model.go         # Application state and UI model
-└── templates/               # Templates for generated files
-    ├── README.md.tmpl       # Template for plugin README
-    ├── doc/                 # Templates for documentation
-    ├── lua/                 # Templates for Lua modules
-    └── plugin/              # Templates for plugin entry points
+└── pkg/                     # Reusable packages
+    └── ui/                  # UI components and logic
+        ├── generator.go     # Plugin generation functionality
+        ├── model.go         # Application state and UI model
+        └── templates/       # Templates for generated files
+            ├── README.md.tmpl  # Template for plugin README
+            ├── doc/         # Templates for documentation
+            ├── lua/         # Templates for Lua modules
+            └── plugin/      # Templates for plugin entry points
 ```
 
 ### Core Components
@@ -44,7 +44,7 @@ The plugin generator uses Go's `text/template` package for creating all plugin f
 
 1. **Template Organization**: Templates are organized in a directory structure that matches the plugin structure:
    ```
-   templates/
+   pkg/ui/templates/
    ├── README.md.tmpl             # Template for the plugin README
    ├── doc/
    │   └── plugin.txt.tmpl        # Template for Neovim help docs
@@ -71,7 +71,7 @@ The plugin generator uses Go's `text/template` package for creating all plugin f
 
 3. **Template Embedding**: Templates are embedded in the binary using Go's `embed` package:
    ```go
-   //go:embed ../../templates/*
+   //go:embed templates
    var templateFS embed.FS
    ```
 
@@ -133,6 +133,7 @@ The tool generates a complete Neovim plugin structure including:
 - Lua module structure
 - Proper documentation
 - README with installation instructions
+- Lua formatting configuration (.stylua.toml)
 - Necessary boilerplate code
 
 ## Development
