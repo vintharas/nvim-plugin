@@ -5,6 +5,7 @@
 *.so
 *.dylib
 nvim-plugin
+!cmd/nvim-plugin
 
 # Test binary, built with `go test -c`
 *.test
